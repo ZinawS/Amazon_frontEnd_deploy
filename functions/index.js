@@ -20,7 +20,27 @@ setGlobalOptions({
 });
 
 // Middleware
-app.use(cors({ origin: true }));
+// With this:
+const allowedOrigins = [
+  "https://amazon-fronend-deployment.netlify.app",
+  "http://localhost:3000", // for local development
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = `CORS policy: ${origin} not allowed`;
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true, // if you need cookies/auth headers
+  })
+);
 app.use(express.json());
 
 // Health check
