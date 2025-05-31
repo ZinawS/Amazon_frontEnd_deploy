@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import "./App.css";
+import "./app.css";
 import Routering from "./Router";
 import { DataContext } from "./DataProvider/DataProvider";
 import { auth } from "./Utility/firebase";
