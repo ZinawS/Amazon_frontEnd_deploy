@@ -5,7 +5,7 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBn-I11nFl7q3STxF0b8wlnIlT3DUK6tvE",
+  apiKey: import.meta.env.VITE_APIKEY,
   authDomain: "clone-69546.firebaseapp.com",
   projectId: "clone-69546",
   storageBucket: "clone-69546.appspot.com", // Fixed storage bucket URL
@@ -21,7 +21,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
-
 
 export { auth, db, storage };
 export default app;
