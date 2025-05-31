@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import classes from "./SignUp.module.css";
+import classes from "./signUp.module.css";
 import Layout from "../../Components/Layout/Layout";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/images/amazon_logo.png";

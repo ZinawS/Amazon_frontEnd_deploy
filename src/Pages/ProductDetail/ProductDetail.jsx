@@ -4,7 +4,7 @@ import Rating from "@mui/material/Rating";
 import Layout from "../../Components/Layout/Layout";
 import axios from "axios";
 import baseUrl from "../../Api/EndPoints";
-import classes from "./productDetail.module.css";
+import classes from "./productdetail.module.css";
 import Loader from "../../Components/Loader/Loader";
 import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
 import { Type } from "../../Utility/actionType";
