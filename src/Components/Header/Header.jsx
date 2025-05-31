@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import classes from "./Header.module.css";
+import classes from "./header.module.css";
 import { FaSearch } from "react-icons/fa";
 import { RiMapPinLine } from "react-icons/ri";
 import { BiCart } from "react-icons/bi";
