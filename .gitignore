@@ -18,10 +18,10 @@ dist-ssr
 .idea
 .DS_Store
 *.suo
-*.ntvs*
+*.ntvs
 *.njsproj
 *.sln
 *.sw?
 *.env
-node_modules
+node_modules/
 *.env
