@@ -1,0 +1,8 @@
+{
+  "project": {
+    "id": "clone-69546"
+  },
+  "stripe": {
+    "secret": "your_stripe_test_key"
+  }
+}

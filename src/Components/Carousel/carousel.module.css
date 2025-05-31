@@ -1,0 +1,17 @@
+.hero_img {
+  position: relative;
+  background-color: greenyellow;
+}
+.hero_img::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(225, 225, 225, 0),
+    rgb(255, 255, 255)
+  );
+  /* background-color: green; */
+}

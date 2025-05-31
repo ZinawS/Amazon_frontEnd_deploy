@@ -1,0 +1,81 @@
+/* results.module.css */
+
+/* ================
+   CATEGORY HEADER 
+   ================ */
+.category_header {
+  padding: 30px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.category_title {
+  font-size: 28px;
+  font-weight: 400;
+  color: #0f1111;
+  margin-bottom: 5px;
+  padding: 30px;
+}
+
+.category_subtitle {
+  font-size: 14px;
+  color: #565959;
+  padding: 30px;
+
+}
+
+/* =============
+   DIVIDER LINE 
+   ============= */
+.category_divider {
+  height: 1px;
+  background-color: #ddd;
+  border: none;
+  margin: 0 30px;
+}
+
+/* =====================
+   NO RESULTS MESSAGE 
+   ===================== */
+.no_results {
+  grid-column: 1 / -1;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no_results_title {
+  font-size: 18px;
+  color: #0f1111;
+  margin-bottom: 10px;
+}
+
+.no_results_text {
+  font-size: 14px;
+  color: #565959;
+}
+
+/* =====================
+   RESPONSIVE ADJUSTMENTS
+   ===================== */
+@media (max-width: 768px) {
+  .category_header {
+    padding: 20px;
+  }
+
+  .category_title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category_header {
+    padding: 15px;
+  }
+
+  .category_title {
+    font-size: 20px;
+  }
+}

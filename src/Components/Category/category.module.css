@@ -1,0 +1,135 @@
+/* ================================================
+   CATEGORY MODULE STYLESHEET
+   File: Category.module.css
+   Applies to:
+   - Category.jsx (grid wrapper)
+   - CategoryCard.jsx (individual cards)
+   Purpose:
+   - Creates Amazon-style responsive card layout
+   - Aligns "Shop Now" at bottom
+   - Keeps grid stacked above overlapping elements
+   ================================================= */
+
+/* ================================================
+   SECTION: Responsive Grid Layout
+   ------------------------------------------------
+   Description:
+   - Responsive column layout (1-4 columns)
+   - Centers content
+   - Z-index ensures visibility above others
+   ================================================= */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1440px;
+  margin: -200px auto 10px;
+  background-color: #ffffff;
+ background-color: transparent; /* Transparency */
+  position: relative; /* Required for z-index */
+  z-index: 10; /* Ensures grid is above background items */
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ================================================
+   SECTION: Individual Category Card Styling
+   ------------------------------------------------
+   Description:
+   - White background with border and shadow on hover
+   - Flex layout allows aligning elements top-to-bottom
+   ================================================= */
+.category {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.category:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================
+   SECTION: Anchor Wrapper Inside Card
+   ------------------------------------------------
+   Description:
+   - Makes the entire card clickable
+   - Enables internal flex layout for content spacing
+   ================================================= */
+.category a {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-decoration: none;
+  height: 100%;
+  padding: 1rem;
+}
+
+/* ================================================
+   SECTION: Card Title Text
+   ------------------------------------------------
+   Description:
+   - Bold heading
+   - Left-aligned
+   ================================================= */
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* ================================================
+   SECTION: Card Image
+   ------------------------------------------------
+   Description:
+   - Fixed height
+   - Keeps consistent layout across cards
+   ================================================= */
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* ================================================
+   SECTION: Shop Now Link
+   ------------------------------------------------
+   Description:
+   - Aligned to bottom using flex grow
+   - Styled like a button or call to action
+   ================================================= */
+.shop_now {
+  margin-top: auto; /* Pushes this to the bottom */
+  font-size: 0.9rem;
+  color: #007185;
+  font-weight: 500;
+  text-align: left;
+}
+
+.shop_now:hover {
+  color: black;
+}
