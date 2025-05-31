@@ -21,7 +21,6 @@
   font-size: 14px;
   color: #565959;
   padding: 30px;
-
 }
 
 /* =============
@@ -77,5 +76,429 @@
 
   .category_title {
     font-size: 20px;
+  }
+}
+
+/* Product Container loaded from product component */
+/* ====================== 
+   PRODUCTS GRID CONTAINER 
+   ====================== */
+/* Main container for all product cards using CSS Grid */
+.products_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 50px;
+  padding: 20px;
+  max-width: 1450px;
+  margin: 0 auto;
+  justify-items: center;
+}
+a {
+  text-decoration: none;
+  /* color: inherit; */
+  color: #111;
+}
+/* =============
+   PRODUCT CARD 
+   ============= */
+/* Individual product card container styling */
+.card_container {
+  width: 100%;
+  max-width: 400px;
+  min-width: 200px;
+  height: 400px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Card hover effect - elevation and slight lift */
+.card_container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+/* =====================
+   PRODUCT DETAIL CONTAINER (CART MODE)
+   ===================== */
+.product_detail_container {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Flex layout for cart mode */
+.flex_layout {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 80%;
+}
+
+/* Main container in cart mode */
+.product_main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Image side in cart mode */
+.image_side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Cart image container */
+.cart_image_container {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart_image_container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Product info in cart mode */
+.product_info {
+  flex: 1;
+  width: 100%;
+}
+
+/* ================
+   PRODUCT IMAGE 
+   ================ */
+/* Container for product image with centered alignment */
+.image_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  margin-bottom: 15px;
+}
+
+/* Product image styling with smooth zoom effect */
+.product_image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Image zoom effect on card hover */
+.card_container:hover .product_image {
+  transform: scale(1.03);
+}
+
+/* =================
+   PRODUCT DETAILS 
+   ================= */
+/* Container for all product information below image */
+.product_details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+/* ================
+   PRODUCT TITLE 
+   ================ */
+/* Product name styling with ellipsis for overflow */
+.product_title {
+  font-size: 16px;
+  font-weight: 500;
+  /* color: #0066c0; */
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 40px;
+  line-height: 1.3;
+}
+
+/* Title hover effect - color change and underline */
+.product_title:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
+
+/* =============
+   RATING AREA 
+   ============= */
+/* Container for star rating and review count */
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Star rating icons styling */
+.rating_stars {
+  color: #ffa41c;
+  font-size: 18px !important;
+}
+
+/* Review count text styling */
+.rating_count {
+  color: #0066c0;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+/* ================
+   PRICE DISPLAY 
+   ================ */
+/* Container for price elements */
+.price_container {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Currency symbol styling */
+.price_symbol {
+  font-size: 14px;
+  margin-right: 2px;
+  margin-top: 2px;
+}
+
+/* Price amount styling (main price) */
+.price_amount {
+  /* font-size: 20px; */
+  /* font-weight: bold; */
+  /* color: #b12704; */
+  letter-spacing: 0.5px;
+}
+
+/* =====================
+   HIDDEN ACTION BUTTON 
+   ===================== */
+/* Button container - initially hidden */
+.button_container {
+  margin-top: auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none; /* Prevents interaction when hidden */
+}
+
+/* Button container - visible on card hover */
+.card_container:hover .button_container {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* Allows interaction when visible */
+}
+
+/* =============
+   BUTTON STYLE 
+   ============= */
+/* Main button styling with gradient and border */
+.button {
+  width: 100%;
+  padding: 8px 12px;
+  background: linear-gradient(to bottom, #f8d479, #f0c14b);
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 15px;
+  color: #111;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover state - enhanced gradient */
+.flex_layout button:hover,
+.button:hover {
+  background: linear-gradient(to bottom, #f5d26e, #e9b924);
+  border-color: #9c7e31 #846a29 #6a561f;
+}
+
+/* Button active/pressed state */
+.flex_layout button:active,
+.button:active {
+  background: #f0c14b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+  transform: scale(0.98);
+}
+
+/* =====================
+   QUANTITY CONTROLS (CART MODE)
+   ===================== */
+.quantity_controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 10px;
+  width: 5%;
+}
+
+.quantity_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.quantity_button {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d5d9d9;
+  border-radius: 4px;
+  background-color: #f0f2f2;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.quantity_button:hover {
+  background-color: #e3e6e6;
+}
+
+.quantity_value {
+  min-width: 20px;
+  text-align: center;
+}
+
+.delete_button {
+  margin-left: 15px;
+  color: #0066c0;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  background: none;
+}
+
+.delete_button:hover {
+  text-decoration: underline;
+}
+
+/* =====================
+   DESCRIPTION (CART MODE)
+   ===================== */
+.description {
+  margin-top: 15px;
+}
+
+.description h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.description p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 15px 0;
+}
+
+/* ================
+   RESPONSIVE DESIGN
+   ================ */
+@media (max-width: 768px) {
+  /* Cart layout: make vertical instead of row-based */
+  .flex_layout {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 95%;
+    margin: 10px auto;
+  }
+
+  .product_main {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: flex-start;
+  }
+
+  .image_side {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .product_info {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .quantity_controls {
+    width: 100%;
+    /* margin-top: 15px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quantity_buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quantity_value {
+    font-weight: bold;
+    padding: 0 10px;
+    min-width: 30px;
+    text-align: center;
+  }
+
+  .delete_button {
+    margin-top: 10px;
+    background-color: transparent;
+    color: #c00;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  /* Adjust image size for better fit on mobile */
+  .cart_image_container {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+  }
+
+  .cart_image_container img {
+    width: 100%;
+    height: auto;
   }
 }

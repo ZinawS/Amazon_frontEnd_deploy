@@ -4,7 +4,6 @@ import Layout from "../../Components/Layout/Layout";
 import axios from "axios";
 import baseUrl from "../../Api/EndPoints";
 import ProductCard from "../../Components/Product/productCard";
-import productClasses from "../../Components/Product/product.module.css";
 import resultsClasses from "./results.module.css";
 import Loader from "../../Components/Loader/Loader";
 
@@ -40,7 +39,7 @@ function Results() {
             </p>
           </div>
           <hr className={resultsClasses.category_divider} />
-          <div className={productClasses.products_container}>
+          <div className={resultsClasses.products_container}>
             {filteredProducts.map((product) => (
               <ProductCard product={product} key={product.id} />
             ))}
