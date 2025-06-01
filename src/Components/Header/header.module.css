@@ -4,7 +4,7 @@
   color: white;
   font-family: "Arial", sans-serif;
   width: 100%;
-  position: sticky;  
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -31,8 +31,6 @@
   flex-grow: 1; */
   max-width: 720px;
 }
-
-
 
 /* Logo container */
 .header_logo {
@@ -154,7 +152,6 @@
   justify-content: center;
   gap: 8px;
   padding-right: 15px;
- 
 }
 /* Individual navigation item */
 .nav_item {
@@ -188,6 +185,7 @@
 .nav_account {
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 /* Returns section */

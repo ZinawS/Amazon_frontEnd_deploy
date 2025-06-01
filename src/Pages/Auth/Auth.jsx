@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import classes from "./signUp.module.css";
+import classes from "./SignUp.module.css";
 import Layout from "../../Components/Layout/Layout";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/images/amazon_logo.png";
@@ -125,7 +125,17 @@ function Auth() {
 
           <h1 className={classes.auth_title}>Sign in</h1>
           {message && (
-            <small style={{ color: "red",padding:"5px",textAlign:"center" , fontWeight:"bold",display:"block"}}>{message}</small>
+            <small
+              style={{
+                color: "red",
+                padding: "5px",
+                textAlign: "center",
+                fontWeight: "bold",
+                display: "block",
+              }}
+            >
+              {message}
+            </small>
           )}
           <form className={classes.auth_form}>
             <div className={classes.form_group}>

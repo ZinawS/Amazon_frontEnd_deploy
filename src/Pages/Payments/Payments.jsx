@@ -8,7 +8,7 @@ import { Type } from "../../Utility/actionType";
 import ProductCard from "../../Components/Product/productCard";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
-import { axiosInstance } from "../../Api/axios";
+import apiClient from "../../Api/axios";
 import { db } from "../../Utility/firebase";
 import { collection, doc, setDoc } from "firebase/firestore"; // Fixed import
 
@@ -63,7 +63,7 @@ function Payments() {
         throw new Error("Invalid payment amount");
       }
 
-      const response = await axiosInstance.post("/payment/create", {
+      const response = await apiClient.post("/payment/create", {
         amount: amountInCents,
       });
 

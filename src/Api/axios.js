@@ -1,43 +1,36 @@
+// src/Api/axios.js (or apiClient.js)
 import axios from "axios";
+import { auth } from "../Utility/firebase"; // Import from your firebase config
+import { getIdToken } from "firebase/auth";
 
-// Better configuration with error handling
-export const axiosInstance = axios.create({
-  // baseURL: "http://localhost:5001/clone-69546/us-central1/api",
-  // Base url at Firebase
-  baseURL: "https://api-yfpe3h5jza-uc.a.run.app",
-  // Base URL at render 
-  // baseURL: "https://amazon-api-deploy-2-utew.onrender.com/",
-  timeout: 10000, // 10 second timeout
-  headers: {
-    "Content-Type": "application/json",
-    "X-Requested-With": "XMLHttpRequest",
-  },
+const apiClient = axios.create({
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://us-central1-clone-69546.cloudfunctions.net/api",
+  // "http://localhost:3000/clone-69546/us-central1/api",
+  timeout: 10000,
 });
 
-// Add request interceptor for error handling
-axiosInstance.interceptors.request.use(
-  (config) => {
-    console.log("Sending request to:", config.url);
+// Add request interceptor for auth tokens
+apiClient.interceptors.request.use(async (config) => {
+  // Skip auth for these endpoints
+  const publicEndpoints = ["/health"];
+  if (publicEndpoints.some((ep) => config.url.includes(ep))) {
     return config;
-  },
-  (error) => {
-    console.error("Request error:", error);
-    return Promise.reject(error);
   }
-);
 
-// Add response interceptor
-axiosInstance.interceptors.response.use(
-  (response) => {
-    console.log("Received response:", response.status);
-    return response;
-  },
-  (error) => {
-    console.error("Response error:", {
-      url: error.config?.url,
-      status: error.response?.status,
-      data: error.response?.data,
-    });
-    return Promise.reject(error);
+  try {
+    const user = auth.currentUser;
+    if (!user) throw new Error("No authenticated user");
+
+    const token = await getIdToken(user);
+    config.headers.Authorization = `Bearer ${token}`;
+  } catch (error) {
+    console.error("Failed to attach auth token:", error);
+    throw error; // This will trigger the error in your component
   }
-);
+
+  return config;
+});
+
+export default apiClient;

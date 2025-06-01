@@ -21,7 +21,7 @@ function Orders() {
           //  })
           const ordersRef = collection(db, "users", user.uid, "orders");
           const querySnapshot = await getDocs(ordersRef);
-          console.log(querySnapshot);
+          // console.log(querySnapshot);
           let ordersData = [];
           ordersData = querySnapshot.docs.map((doc) => ({
             id: doc.id,

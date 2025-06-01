@@ -1,4 +1,4 @@
-// firebase.js (or firebaseConfig.js)
+// src/Utility/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -11,13 +11,10 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_STORAGEBUCKET,
   messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
   appId: import.meta.env.VITE_APPID,
-  measurementId: "G-STB5S70CD5", // This can remain hardcoded if you prefer
+  measurementId: "G-STB5S70CD5",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase services
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
